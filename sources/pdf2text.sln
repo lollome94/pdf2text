@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1700.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pdf2text", "pdf2text\pdf2text.csproj", "{169D8845-43AB-45E2-AD3F-DFA2085F435D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{169D8845-43AB-45E2-AD3F-DFA2085F435D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{169D8845-43AB-45E2-AD3F-DFA2085F435D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{169D8845-43AB-45E2-AD3F-DFA2085F435D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{169D8845-43AB-45E2-AD3F-DFA2085F435D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F2B93D7-A04E-42AB-9515-B674C080B37C}
+	EndGlobalSection
+EndGlobal
