@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
-using iTextSharp.text.pdf;
-using iTextSharp.text.pdf.parser;
+using UglyToad.PdfPig;
+using UglyToad.PdfPig.Content;
 
 namespace pdf2text
 {
@@ -37,9 +37,18 @@ namespace pdf2text
             foreach (FileInfo pdf in listPdfFiles)
             {
                 Console.WriteLine($"Converting file: {pdf.Name}");
-                string textPlain = GetTextFromAllPages(pdf.FullName);
-                string outputPath = System.IO.Path.Combine(outputDirPath, pdf.Name.Replace(pdf.Extension, "") + ".txt");
-                File.WriteAllText(outputPath, textPlain);
+                try
+                {
+                    string textPlain = GetTextFromAllPages(pdf.FullName);
+                    string outputPath = System.IO.Path.Combine(outputDirPath, pdf.Name.Replace(pdf.Extension, "") + ".txt");
+                    File.WriteAllText(outputPath, textPlain);
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine($"\t\tError: {e.Message}");
+                    throw;
+                }
             }
 
 
@@ -54,12 +63,13 @@ namespace pdf2text
         /// <returns></returns>
         public static string GetTextFromAllPages(string pdfPath)
         {
-            PdfReader reader = new(pdfPath);
-
             StringWriter output = new();
+            PdfDocument document = PdfDocument.Open(pdfPath);
 
-            for (int i = 1; i <= reader.NumberOfPages; i++)
-                output.WriteLine(PdfTextExtractor.GetTextFromPage(reader, i, new SimpleTextExtractionStrategy()));
+            foreach (Page page in document.GetPages())
+            {
+                output.WriteLine(page.Text);
+            }
 
             return output.ToString();
         }
